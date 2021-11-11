@@ -35,11 +35,11 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Colors.redAccent,
         elevation: 0.0, //appBar가 뜨는 정도 설정 - 0.0은 화면에 딱 붙어서 나오게 함
       ),
-      body: Padding(
-        padding:
-            EdgeInsets.fromLTRB(30.0, 40.0, 0.0, 0.0), //화면에 올릴 위젯에 대한 여백 공간 설정
+      body: Center(
+        //widget 가로축의 정중앙 배치
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, //위젯을 세로축으로 상,중,하단 배치
+          mainAxisAlignment: MainAxisAlignment
+              .center, //위젯을 세로축으로 상,중,하단 배치 - center이므로 세로축 가운데에 배치
           children: <Widget>[
             Text("My First App"),
           ],
