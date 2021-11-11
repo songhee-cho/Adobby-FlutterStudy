@@ -31,14 +31,17 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Jiin\'s first app'), //app 화면에 출력되는 title, appbar에 표시되는 것
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+        elevation: 0.0, //appBar가 뜨는 정도 설정 - 0.0은 화면에 딱 붙어서 나오게 함
       ),
-      body: Center(
-        //가운데 배치
+      body: Padding(
+        padding:
+            EdgeInsets.fromLTRB(30.0, 40.0, 0.0, 0.0), //화면에 올릴 위젯에 대한 여백 공간 설정
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center, //위젯을 세로축으로 상,중,하단 배치
           children: <Widget>[
-            Text("Hello"),
-            Text("Hello"),
-            Text("Hello"),
+            Text("My First App"),
           ],
         ),
       ),
