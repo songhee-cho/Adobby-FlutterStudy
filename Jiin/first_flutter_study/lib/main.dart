@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, //디버그 표시 띠 안 보이게 설정
       title: "First Flutter App", //app을 총칭하는 이름(앱 이름 그 자체)
       home: Grade(),
     );
@@ -41,6 +42,19 @@ class Grade extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start, //시작점 정렬
             children: <Widget>[
+              Center(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/unnamed.jpg'),
+                  radius: 60.0, //이미지 크기 설정
+                ),
+              ),
+              Divider(
+                //구분선 추가
+                height: 60.0, //divider의 위아래 공백의 합(여기서는 위아래 각각 30px)
+                color: Colors.grey[850],
+                thickness: 0.5,
+                endIndent: 30.0, //구분선이 끝에서 몇 픽셀 떨어져있는지
+              ),
               Text(
                 'Name',
                 style: TextStyle(
@@ -115,6 +129,12 @@ class Grade extends StatelessWidget {
                     style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
                   ),
                 ],
+              ),
+              Center(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/dec22.png'),
+                  radius: 40.0,
+                ),
               ),
             ],
           ),
