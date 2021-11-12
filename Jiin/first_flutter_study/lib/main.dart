@@ -59,7 +59,63 @@ class Grade extends StatelessWidget {
                     letterSpacing: 2.0,
                     fontSize: 28.0,
                     fontWeight: FontWeight.bold),
-              )
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                'JIIN POWER LEVEL',
+                style: TextStyle(
+                  color: Colors.white,
+                  letterSpacing: 2.0, //글자 간격 조절
+                ),
+              ),
+              SizedBox(
+                //sized box를 이용해 두 텍스트 사이의 간격 조절
+                height: 10.0,
+              ),
+              Text(
+                "10",
+                style: TextStyle(
+                    color: Colors.white,
+                    letterSpacing: 2.0,
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 30.0),
+              Row(
+                //가로로 위젯 나열
+                children: <Widget>[
+                  Icon(Icons.check_circle_outline),
+                  SizedBox(width: 10.0), //아이콘과의 간격 조절
+                  Text(
+                    'using lightsaber',
+                    style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
+                  ),
+                ],
+              ),
+              Row(
+                //가로로 위젯 나열
+                children: <Widget>[
+                  Icon(Icons.check_circle_outline),
+                  SizedBox(width: 10.0),
+                  Text(
+                    'face hero tattoo',
+                    style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
+                  ),
+                ],
+              ),
+              Row(
+                //가로로 위젯 나열
+                children: <Widget>[
+                  Icon(Icons.check_circle_outline),
+                  SizedBox(width: 10.0),
+                  Text(
+                    'fire flames',
+                    style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
+                  ),
+                ],
+              ),
             ],
           ),
         ));
