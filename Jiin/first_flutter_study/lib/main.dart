@@ -1,6 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart'; //flutter framework에 있는 기능을 사용하기 위해 무조건 import 해야함
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(MyApp());
 /* 
@@ -36,14 +35,14 @@ class Grade extends StatelessWidget {
           backgroundColor: Colors.amber[700],
           centerTitle: true,
           elevation: 0.0,
-          leading: IconButton(
-            //appbar 위에 action을 취하는 아이콘 생성, leading: 아이콘 버튼이나 간단한 위젯을 왼쪽에 배치
-            icon: Icon(Icons.menu), //햄버거 버튼!
-            onPressed: () {
-              //onPressed: 함수의 형태로 일반 버튼이나 아이콘 버튼을 터치했을 때 일어나는 이벤트 정의
-              print('Menu button is clicked');
-            },
-          ),
+          // leading: IconButton(
+          //   //appbar 위에 action을 취하는 아이콘 생성, leading: 아이콘 버튼이나 간단한 위젯을 왼쪽에 배치
+          //   icon: Icon(Icons.menu), //햄버거 버튼!
+          //   onPressed: () {
+          //     //onPressed: 함수의 형태로 일반 버튼이나 아이콘 버튼을 터치했을 때 일어나는 이벤트 정의
+          //     print('Menu button is clicked');
+          //   },
+          // ),
           actions: <Widget>[
             //actions: 복수의 아이콘 버튼 등을 오른쪽에 배치
             IconButton(
@@ -61,107 +60,77 @@ class Grade extends StatelessWidget {
             ),
           ],
         ),
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(30.0, 40.0, 0.0, 0.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, //시작점 정렬
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
             children: <Widget>[
-              Center(
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/unnamed.jpg'),
-                  radius: 60.0, //이미지 크기 설정
-                ),
-              ),
-              Divider(
-                //구분선 추가
-                height: 60.0, //divider의 위아래 공백의 합(여기서는 위아래 각각 30px)
-                color: Colors.grey[850],
-                thickness: 0.5,
-                endIndent: 30.0, //구분선이 끝에서 몇 픽셀 떨어져있는지
-              ),
-              Text(
-                'Name',
-                style: TextStyle(
-                  color: Colors.white,
-                  letterSpacing: 2.0, //글자 간격 조절
-                ),
-              ),
-              SizedBox(
-                //sized box를 이용해 두 텍스트 사이의 간격 조절
-                height: 10.0,
-              ),
-              Text(
-                "Jiin\'s App",
-                style: TextStyle(
-                    color: Colors.white,
-                    letterSpacing: 2.0,
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'JIIN POWER LEVEL',
-                style: TextStyle(
-                  color: Colors.white,
-                  letterSpacing: 2.0, //글자 간격 조절
-                ),
-              ),
-              SizedBox(
-                //sized box를 이용해 두 텍스트 사이의 간격 조절
-                height: 10.0,
-              ),
-              Text(
-                "10",
-                style: TextStyle(
-                    color: Colors.white,
-                    letterSpacing: 2.0,
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 30.0),
-              Row(
-                //가로로 위젯 나열
-                children: <Widget>[
-                  Icon(Icons.check_circle_outline),
-                  SizedBox(width: 10.0), //아이콘과의 간격 조절
-                  Text(
-                    'using lightsaber',
-                    style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
-                  ),
-                ],
-              ),
-              Row(
-                //가로로 위젯 나열
-                children: <Widget>[
-                  Icon(Icons.check_circle_outline),
-                  SizedBox(width: 10.0),
-                  Text(
-                    'face hero tattoo',
-                    style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
-                  ),
-                ],
-              ),
-              Row(
-                //가로로 위젯 나열
-                children: <Widget>[
-                  Icon(Icons.check_circle_outline),
-                  SizedBox(width: 10.0),
-                  Text(
-                    'fire flames',
-                    style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
-                  ),
-                ],
-              ),
-              Center(
-                child: CircleAvatar(
+              UserAccountsDrawerHeader(
+                currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage('assets/dec22.png'),
-                  radius: 40.0,
                 ),
+                otherAccountsPictures: <Widget>[
+                  CircleAvatar(
+                    backgroundImage: AssetImage('assets/unnamed.jpg'),
+                  ),
+                ],
+                accountName: Text('kji-dec'),
+                accountEmail: Text('dec22sag@gmail.com'),
+                onDetailsPressed: () {
+                  print('arrow is clicked');
+                }, //더보기창
+                decoration: BoxDecoration(
+                    color: Colors.red[200],
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(40.0),
+                      bottomRight: Radius.circular(40.0),
+                    ) //곡선 효과
+                    ),
+              ),
+              ListTile(
+                leading: Icon(Icons.home, color: Colors.grey[850]),
+                title: Text('Home'),
+                onTap: () {
+                  print('Home is clicked');
+                },
+                trailing: Icon(Icons.add), //trailing: 오른쪽 끝에 추가
+              ),
+              ListTile(
+                leading: Icon(Icons.settings, color: Colors.grey[850]),
+                title: Text('Settings'),
+                onTap: () {
+                  print('Setting is clicked');
+                },
+                trailing: Icon(Icons.add), //trailing: 오른쪽 끝에 추가
+              ),
+              ListTile(
+                leading: Icon(Icons.question_answer, color: Colors.grey[850]),
+                title: Text('QnA'),
+                onTap: () {
+                  print('QnA is clicked');
+                },
+                trailing: Icon(Icons.add), //trailing: 오른쪽 끝에 추가
               ),
             ],
           ),
-        ));
+        ),
+        body: Builder(builder: (BuildContext ctx) {
+          return Center(
+            child: TextButton(
+                onPressed: () {
+                  flutterToast();
+                },
+                child: Text('toast')),
+          );
+        }));
   }
+}
+
+void flutterToast() {
+  Fluttertoast.showToast(
+      msg: "Flutter",
+      gravity: ToastGravity.BOTTOM, //위치 지정,
+      backgroundColor: Colors.redAccent,
+      fontSize: 20.0,
+      textColor: Colors.white,
+      toastLength: Toast.LENGTH_SHORT);
 }
