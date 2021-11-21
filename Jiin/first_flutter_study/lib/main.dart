@@ -36,14 +36,14 @@ class Grade extends StatelessWidget {
           backgroundColor: Colors.amber[700],
           centerTitle: true,
           elevation: 0.0,
-          leading: IconButton(
-            //appbar 위에 action을 취하는 아이콘 생성, leading: 아이콘 버튼이나 간단한 위젯을 왼쪽에 배치
-            icon: Icon(Icons.menu), //햄버거 버튼!
-            onPressed: () {
-              //onPressed: 함수의 형태로 일반 버튼이나 아이콘 버튼을 터치했을 때 일어나는 이벤트 정의
-              print('Menu button is clicked');
-            },
-          ),
+          // leading: IconButton(
+          //   //appbar 위에 action을 취하는 아이콘 생성, leading: 아이콘 버튼이나 간단한 위젯을 왼쪽에 배치
+          //   icon: Icon(Icons.menu), //햄버거 버튼!
+          //   onPressed: () {
+          //     //onPressed: 함수의 형태로 일반 버튼이나 아이콘 버튼을 터치했을 때 일어나는 이벤트 정의
+          //     print('Menu button is clicked');
+          //   },
+          // ),
           actions: <Widget>[
             //actions: 복수의 아이콘 버튼 등을 오른쪽에 배치
             IconButton(
@@ -60,6 +60,59 @@ class Grade extends StatelessWidget {
               },
             ),
           ],
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: AssetImage('assets/dec22.png'),
+                ),
+                otherAccountsPictures: <Widget>[
+                  CircleAvatar(
+                    backgroundImage: AssetImage('assets/unnamed.jpg'),
+                  ),
+                ],
+                accountName: Text('kji-dec'),
+                accountEmail: Text('dec22sag@gmail.com'),
+                onDetailsPressed: () {
+                  print('arrow is clicked');
+                }, //더보기창
+                decoration: BoxDecoration(
+                    color: Colors.red[200],
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(40.0),
+                      bottomRight: Radius.circular(40.0),
+                    ) //곡선 효과
+                    ),
+              ),
+              ListTile(
+                leading: Icon(Icons.home, color: Colors.grey[850]),
+                title: Text('Home'),
+                onTap: () {
+                  print('Home is clicked');
+                },
+                trailing: Icon(Icons.add), //trailing: 오른쪽 끝에 추가
+              ),
+              ListTile(
+                leading: Icon(Icons.settings, color: Colors.grey[850]),
+                title: Text('Settings'),
+                onTap: () {
+                  print('Setting is clicked');
+                },
+                trailing: Icon(Icons.add), //trailing: 오른쪽 끝에 추가
+              ),
+              ListTile(
+                leading: Icon(Icons.question_answer, color: Colors.grey[850]),
+                title: Text('QnA'),
+                onTap: () {
+                  print('QnA is clicked');
+                },
+                trailing: Icon(Icons.add), //trailing: 오른쪽 끝에 추가
+              ),
+            ],
+          ),
         ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(30.0, 40.0, 0.0, 0.0),
