@@ -114,107 +114,22 @@ class Grade extends StatelessWidget {
             ],
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(30.0, 40.0, 0.0, 0.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, //시작점 정렬
-            children: <Widget>[
-              Center(
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/unnamed.jpg'),
-                  radius: 60.0, //이미지 크기 설정
-                ),
+        body: Builder(builder: (BuildContext ctx) {
+          return Center(
+            child: TextButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.red)),
+              child: Text(
+                'Show me',
+                style: TextStyle(color: Colors.white),
               ),
-              Divider(
-                //구분선 추가
-                height: 60.0, //divider의 위아래 공백의 합(여기서는 위아래 각각 30px)
-                color: Colors.grey[850],
-                thickness: 0.5,
-                endIndent: 30.0, //구분선이 끝에서 몇 픽셀 떨어져있는지
-              ),
-              Text(
-                'Name',
-                style: TextStyle(
-                  color: Colors.white,
-                  letterSpacing: 2.0, //글자 간격 조절
-                ),
-              ),
-              SizedBox(
-                //sized box를 이용해 두 텍스트 사이의 간격 조절
-                height: 10.0,
-              ),
-              Text(
-                "Jiin\'s App",
-                style: TextStyle(
-                    color: Colors.white,
-                    letterSpacing: 2.0,
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'JIIN POWER LEVEL',
-                style: TextStyle(
-                  color: Colors.white,
-                  letterSpacing: 2.0, //글자 간격 조절
-                ),
-              ),
-              SizedBox(
-                //sized box를 이용해 두 텍스트 사이의 간격 조절
-                height: 10.0,
-              ),
-              Text(
-                "10",
-                style: TextStyle(
-                    color: Colors.white,
-                    letterSpacing: 2.0,
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 30.0),
-              Row(
-                //가로로 위젯 나열
-                children: <Widget>[
-                  Icon(Icons.check_circle_outline),
-                  SizedBox(width: 10.0), //아이콘과의 간격 조절
-                  Text(
-                    'using lightsaber',
-                    style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
-                  ),
-                ],
-              ),
-              Row(
-                //가로로 위젯 나열
-                children: <Widget>[
-                  Icon(Icons.check_circle_outline),
-                  SizedBox(width: 10.0),
-                  Text(
-                    'face hero tattoo',
-                    style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
-                  ),
-                ],
-              ),
-              Row(
-                //가로로 위젯 나열
-                children: <Widget>[
-                  Icon(Icons.check_circle_outline),
-                  SizedBox(width: 10.0),
-                  Text(
-                    'fire flames',
-                    style: TextStyle(fontSize: 16.0, letterSpacing: 1.0),
-                  ),
-                ],
-              ),
-              Center(
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/dec22.png'),
-                  radius: 40.0,
-                ),
-              ),
-            ],
-          ),
-        ));
+              onPressed: () {
+                ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
+                  content: Text('Hello'),
+                ));
+              },
+            ),
+          );
+        }));
   }
 }
