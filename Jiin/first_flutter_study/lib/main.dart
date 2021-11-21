@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart'; //flutter framework에 있는 기능을 사용하기 위해 무조건 import 해야함
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -117,21 +115,22 @@ class Grade extends StatelessWidget {
         ),
         body: Builder(builder: (BuildContext ctx) {
           return Center(
-            child: ElevatedButton(
-              child: Text('Show me'),
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(
-                      'Hello',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    backgroundColor: Colors.teal,
-                    duration: Duration(milliseconds: 1000) //snackbar가 떠있는 시간
-                    ));
-              },
-            ),
+            child: TextButton(
+                onPressed: () {
+                  flutterToast();
+                },
+                child: Text('toast')),
           );
         }));
   }
+}
+
+void flutterToast() {
+  Fluttertoast.showToast(
+      msg: "Flutter",
+      gravity: ToastGravity.BOTTOM, //위치 지정,
+      backgroundColor: Colors.redAccent,
+      fontSize: 20.0,
+      textColor: Colors.white,
+      toastLength: Toast.LENGTH_SHORT);
 }
