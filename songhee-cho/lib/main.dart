@@ -419,50 +419,80 @@
 //       }
 // } //~lec18
 
-////////////////
-// snack bar without builder widget
-// toast message
-////////////////
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyPage());
+void main() => runApp(const MyApp());
 
-class MyPage extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-  @override
+  @override 
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Snack Bar'),
-        centerTitle: true,
-
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Myapp',
+      theme: ThemeData(
+        primaryColor: Colors.green
       ),
-      body: MySnackBar(),
-
-    );
+      home: const MyPage(),
+      );
   }
 }
 
-class MySnackBar extends StatelessWidget {
-  @override
+class MyPage extends StatelessWidget {
+  const MyPage({Key? key}) : super(key: key);
+
+  @override 
   Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        child: Text('Show me'),
-        onPressed: () {
-          Scaffold.of(context)
-          .showSnackBar(SnackBar(
-            content: Text('Hello',
-            textAlign: TextAlign.center;
-            style: TextStyle(
-              color: Colors.white
+    return Scaffold(
+      backgroundColor : Colors.lightGreen,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.white,
+              child: Text('Container 1'),
+
             ),
+
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.teal,
+              child: Text('Container 2'),
+
             ),
-            backgroundColor: Colors.teal,
-            duration: Duration(milliseconds: 1000),
-        }),
-      );
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.tealAccent[700],
+              child: Text('Container 3'),
+            ),
+          ]
+        )
+        // child: Container(
+
+        // color: Colors.white,
+        // width: 100,
+        // height: 100,
+        // // margin: const EdgeInsets.all(20),
+        // margin: const EdgeInsets.symmetric(
+        //   vertical: 50,
+        //   horizontal: 10
+        // ),
+        // padding: EdgeInsets.all(40),
+        // child: const Text('Hello'),
+
+        ),
+
+      ),
+
+    );
+        
   }
 }
