@@ -1,6 +1,6 @@
 # Adobby-FlutterStudy
 
-### Adobby Team Flutter Study
+### Adobby Team Flutter Study (스터디 종료)
 
 - 진행 강좌: [완전 초보용 플러터 강좌](https://www.youtube.com/watch?v=AdYRASHRKwE&list=PLQt_pzi-LLfpcRFhWMywTePfZ2aPapvyl)
 - 제출 형태: 실습파일 or 이론 정리파일 중 택 1
@@ -14,4 +14,4 @@
 |1주차|1-8강|✅|
 |2주차|9-14강|✅|
 |3주차|15-19강|✅|
-|4주차|20-25강||
+|4주차|20-25강|✅|
